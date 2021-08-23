@@ -21,15 +21,6 @@ const Game = (props) => {
 				{ answerText: 'Microsoft', isCorrect: false },
 			],
         },
-        {
-			ques: 'How many Harry Potter books are there?',
-			options: [
-				{ answerText: '1', isCorrect: false },
-				{ answerText: '4', isCorrect: false },
-				{ answerText: '6', isCorrect: false },
-				{ answerText: '7', isCorrect: true },
-			],
-		},
     ];
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
