@@ -1,0 +1,16 @@
+.quiz{
+    padding: 25px;
+    text-align: left;
+}
+.submit{
+    width: 40%;
+    text-align: center;
+    margin: 15px;
+}
+p{
+    margin-right: 8px;
+}
+.option{
+    width:50%;
+    margin: 10px;
+}
