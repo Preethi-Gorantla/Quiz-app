@@ -1,6 +1,5 @@
 import classes from "./Game.module.css";
 import Card from "../UI/Card/Card";
-import Questions from "../question/Questions";
 import React,{useState} from "react";
 const Game = (props) => {
       const dummy_Ques=[
@@ -36,6 +35,7 @@ const Game = (props) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
+	console.log(showScore);
     const [queslen,setNewqueslen] = useState(false);
     const formSubmitHandler = (event) => {
         event.preventDefault();

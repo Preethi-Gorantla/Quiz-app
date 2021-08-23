@@ -28,13 +28,20 @@ const passwordReducer = (state,action) => {
 };
 
 const Login = (props) => {
+  /*const [enteredEmail, setEnteredEmail] = useState('');
+  const [emailIsValid, setEmailIsValid] = useState();*/
 
   const [emailState,dispatchEmail]= useReducer(emailReducer,{value:"",isValid:undefined});
   const [passwordState,dispatchPswd] = useReducer(passwordReducer,{value:"",isValid:undefined});
+
+  /*const [enteredPassword, setEnteredPassword] = useState('');
+  const [passwordIsValid, setPasswordIsValid] = useState();*/
+
   const [formIsValid, setFormIsValid] = useState(false);
   const {isValid: emailIsValid} = emailState;
   const {isValid:passwordIsValid} = passwordState;
-
+  /*useEffect(() =>{console.log("Effectt running")
+    return () => {console.log("Clean up")}},[emailIsValid,passwordIsValid]);*/
   useEffect(() =>{
     const identifier = setTimeout(() => {
     console.log("check for validity");
@@ -43,23 +50,30 @@ const Login = (props) => {
   },500);
   return () => {console.log("clean up");
                 clearTimeout(identifier);
-  }},[emailIsValid ,passwordIsValid]);
+  }},[emailState.isValid ,passwordState.value]);
 
   const emailChangeHandler = (event) => {
+    //setEnteredEmail(event.target.value);
     dispatchEmail({type:"USER_INPUT",val:event.target.value});
-    
+    //setFormIsValid(event.target.value.includes('@') && enteredPassword.trim().length>6);
+   // setFormIsValid(event.target.value.includes('@') && passwordState.val.trim().length>6);
   };
 
   const passwordChangeHandler = (event) => {
+    //setEnteredPassword(event.target.value);
     dispatchPswd({type:"USER_INPUT",val:event.target.value});
+    //setFormIsValid(enteredEmail.includes('@') && enteredPassword.trim().length>6);
     setFormIsValid(emailState.isValid && passwordState.isValid);
   };
 
   const validateEmailHandler = () => {
+   //setEmailIsValid(enteredEmail.includes('@'));
+   //setEmailIsValid(emailState.isValid);
    dispatchEmail({type:"INPUT_BLUR"});
   };
 
   const validatePasswordHandler = () => {
+    //setPasswordIsValid(enteredPassword.trim().length > 6);
     dispatchEmail({type:"INPUT_BLUR",})
   };
   const emailInputRef = useRef();
